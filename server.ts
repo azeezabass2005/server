@@ -3,6 +3,9 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import "dotenv/config"
 
+import profileRouter from './src/routes/profile'
+import noteRouter from './src/routes/note'
+
 const app = express()
 
 const corsOption = {
@@ -15,6 +18,10 @@ app.use(cors(corsOption))
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+
+app.use("/profile", profileRouter)
+
+app.use("/note", noteRouter)
 
 const port = process.env.PORT!
 
