@@ -35,7 +35,7 @@ export const handleCreateProfile = async (req: Request, res: Response) => {
 
 export const handleGetProfile = async (req: Request, res: Response) => {
     try {
-        const { userId } = req.body
+        const { userId } = req.query
         const userExists = await ProfileModel.findOne({ userId: userId })
         if(!userExists) {
             return res.status(404).json({
