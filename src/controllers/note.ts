@@ -27,7 +27,7 @@ export const handleCreateNote = async (req: Request, res: Response) => {
 
 export const handleGetAllNotes = async (req: Request, res: Response) => {
     try {
-        const { userId } = req.body
+        const { userId } = req.query
         const notes = await NoteModel.find({ userId: userId })
         return res.status(200).json({
             success: true,
